@@ -1,0 +1,13 @@
+{
+  "name": "rumitech-solutions-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Official website for RumiTech Solutions — zero-dependency static site generator, Cloudflare Pages ready.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/preview.mjs",
+    "images": "python3 scripts/make-images.py"
+  },
+  "engines": { "node": ">=18" }
+}
