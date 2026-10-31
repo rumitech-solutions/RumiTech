@@ -325,3 +325,6 @@
     hero.addEventListener('mouseleave', () => { con.style.setProperty('--px', 0); con.style.setProperty('--py', 0); });
   }
 })();
+
+/* v8: reload button (CSP-safe, no inline handlers) */
+document.addEventListener('click', (e) => { if (e.target.closest && e.target.closest('[data-reload]')) location.reload(); });

@@ -69,3 +69,7 @@ footer links, sitemap and structured data appear automatically. Add `public/og/<
 
 ## v8 — finishing touches
 - Balanced headings, themed text selection, aligned status badges, accent-ruled stats, high-contrast and forced-colors support.
+
+## v9 — security & resilience
+- Build writes a strict Content-Security-Policy into dist/_headers (inline script hashes computed automatically; no inline event handlers allowed).
+- /.well-known/security.txt, sitemap lastmod, light/dark theme-color, styled /offline fallback used by the service worker.

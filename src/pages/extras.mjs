@@ -101,4 +101,15 @@ ${cta({ title: 'Writing about us?', text: 'Tell us what you’re working on and 
   return { path: '/brand', html: layout({ path: '/brand', title: 'Brand kit', description: `${site.name} logo, wordmark, colours and typography.`, body, jsonLd: [breadcrumbLd([['Home', '/'], ['Brand kit', '/brand']])] }) };
 }
 
-export const extraPages = () => [faqPage(), brandPage()];
+function offlinePage() {
+  const body = `
+<section class="page-hero"><div class="wrap">
+  <p class="eyebrow">Offline</p>
+  <h1>You’re offline.</h1>
+  <p class="hero-lead">This page isn’t saved on your device yet. Pages you have already visited still open — reconnect to see the rest.</p>
+  <div class="btn-row"><a class="btn btn-primary btn-lg" href="/">Go to the home page</a><button class="btn btn-ghost btn-lg" type="button" data-reload>Try again</button></div>
+</div></section>`;
+  return { path: '/offline', html: layout({ path: '/offline', title: 'Offline', description: 'You are offline.', body, noindex: true }) };
+}
+
+export const extraPages = () => [faqPage(), brandPage(), offlinePage()];

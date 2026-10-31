@@ -15,7 +15,8 @@ export function layout({ path, title, description, body, theme, ogImage, jsonLd 
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>${esc(fullTitle)}</title>
 <meta name="description" content="${esc(description)}">
-<meta name="theme-color" content="#080B10">
+<meta name="theme-color" content="#080B10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F7F6F1" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="dark light">
 ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${url}">`}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">

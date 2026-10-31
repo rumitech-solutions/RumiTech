@@ -1,5 +1,6 @@
 // Zero-dependency static site generator.  Usage: node scripts/build.mjs
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import site from '../site.config.mjs';
@@ -51,11 +52,11 @@ const data = {
 fs.writeFileSync(path.join(dist, 'assets/site-data.json'), JSON.stringify(data));
 
 // sitemap + robots
-const indexable = pages.filter((p) => p.path !== '/404');
+const indexable = pages.filter((p) => p.path !== '/404' && p.path !== '/offline');
 const urls = indexable.map((p) => site.origin + (p.path === '/' ? '/' : p.path));
 fs.writeFileSync(
   path.join(dist, 'sitemap.xml'),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc></url>`).join('\n')}\n</urlset>\n`
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc><lastmod>${new Date().toISOString().slice(0, 10)}</lastmod></url>`).join('\n')}\n</urlset>\n`
 );
 fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${site.origin}/sitemap.xml\n`);
 
@@ -77,6 +78,20 @@ for (const p of pages) {
   }
   const h1 = (html.match(/<h1[\s>]/g) || []).length;
   if (h1 !== 1) { console.error(`HEADING: ${p.path} has ${h1} <h1>`); broken++; }
+}
+
+// Content-Security-Policy: hash every inline executable script so no 'unsafe-inline' for scripts is needed
+const hashes = new Set();
+for (const p of pages) for (const m of p.html.matchAll(/<script(?![^>]*\bsrc=)(?![^>]*type="application\/ld\+json")[^>]*>([\s\S]*?)<\/script>/g)) hashes.add(`'sha256-${crypto.createHash('sha256').update(m[1]).digest('base64')}'`);
+const csp = ["default-src 'self'", `script-src 'self' ${[...hashes].join(' ')}`, "style-src 'self' 'unsafe-inline'", "img-src 'self' data:", "font-src 'self'", "connect-src 'self'", "object-src 'none'", "base-uri 'self'", "form-action 'self'", "frame-ancestors 'none'", 'upgrade-insecure-requests'].join('; ');
+const hp = path.join(dist, '_headers');
+fs.writeFileSync(hp, fs.readFileSync(hp, 'utf8').replace(/^\/\*\n/, `/*\n  Content-Security-Policy: ${csp}\n`));
+
+// security.txt (RFC 9116)
+fs.mkdirSync(path.join(dist, '.well-known'), { recursive: true });
+if (site.contact.email) {
+  const exp = new Date(Date.now() + 365 * 864e5).toISOString().replace(/\.\d+Z$/, 'Z');
+  fs.writeFileSync(path.join(dist, '.well-known/security.txt'), `Contact: mailto:${site.contact.email}\nExpires: ${exp}\nPreferred-Languages: en\nCanonical: ${site.origin}/.well-known/security.txt\n`);
 }
 
 /* palette pages updated above */
