@@ -1,7 +1,7 @@
 import site from '../../site.config.mjs';
 import { products } from '../data/products.mjs';
 import { esc, cta, draftNote, contactEmail, warn, themeStyle } from '../lib/ui.mjs';
-import { layout, breadcrumbLd } from '../lib/layout.mjs';
+import { layout, breadcrumbLd, absUrl } from '../lib/layout.mjs';
 import { companyPrivacy } from './privacy-doc.mjs';
 
 function about() {
@@ -41,10 +41,10 @@ ${cta({ title: 'Say hello.', text: 'Questions, feedback or ideas — we read eve
     path: '/about',
     html: layout({
       path: '/about',
-      title: 'About',
-      description: `About ${site.name}: an independent studio building useful, thoughtfully engineered software.`,
+      title: 'About RumiTech — an independent product studio',
+      description: `${site.name} is an independent studio building its own useful, calm and privacy-conscious apps — one careful idea at a time. Learn how we work.`,
       body,
-      jsonLd: [breadcrumbLd([['Home', '/'], ['About', '/about']])],
+      jsonLd: [breadcrumbLd([['Home', '/'], ['About', '/about']]), { '@context': 'https://schema.org', '@type': 'AboutPage', name: `About ${site.name}`, url: absUrl('/about'), about: { '@id': site.origin + '/#org' } }],
     }),
   };
 }
@@ -108,10 +108,10 @@ function contact() {
     path: '/contact',
     html: layout({
       path: '/contact',
-      title: 'Contact',
-      description: `Contact ${site.name} for general inquiries, product support, feedback or collaboration.`,
+      title: 'Contact RumiTech — support, feedback & partnerships',
+      description: `Get in touch with ${site.name} for general questions, product support, feedback or collaboration. Choose a topic and email us directly.`,
       body,
-      jsonLd: [breadcrumbLd([['Home', '/'], ['Contact', '/contact']])],
+      jsonLd: [breadcrumbLd([['Home', '/'], ['Contact', '/contact']]), { '@context': 'https://schema.org', '@type': 'ContactPage', name: `Contact ${site.name}`, url: absUrl('/contact') }],
     }),
   };
 }

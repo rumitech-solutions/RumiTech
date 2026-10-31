@@ -64,8 +64,8 @@ export function projectPages() {
       path: '/projects',
       html: layout({
         path: '/projects',
-        title: 'Projects',
-        description: 'Projects and experiments from RumiTech Solutions, clearly labelled by status.',
+        title: 'Projects: StashTrail and RideCare',
+        description: 'Early-stage projects and experiments from RumiTech Solutions, kept separate from released products and clearly labelled by status.',
         body,
         jsonLd: [breadcrumbLd([['Home', '/'], ['Projects', '/projects']])],
       }),

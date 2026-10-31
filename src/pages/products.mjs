@@ -139,7 +139,7 @@ ${cta({
       name: p.name,
       description: p.summary,
       url: absUrl(path),
-      applicationCategory: 'LifestyleApplication',
+      applicationCategory: ({ stockly: 'ProductivityApplication', finmate: 'FinanceApplication', circlo: 'SocialNetworkingApplication' })[p.slug] || 'LifestyleApplication',
       publisher: { '@type': 'Organization', name: site.name, url: site.origin + '/' },
     },
   ];
@@ -148,7 +148,7 @@ ${cta({
     html: layout({
       path,
       title: `${p.name} — ${p.tagline}`,
-      description: `${p.name}: ${p.summary}`,
+      description: `${p.name}: ${p.summary} See its status, FAQs and privacy policy.`,
       body,
       theme: p.theme,
       ogImage: `/og/${p.slug}.png`,
@@ -194,10 +194,10 @@ function productsIndex() {
     path: '/products',
     html: layout({
       path: '/products',
-      title: 'Products',
+      title: 'Products: Imaanly, Stockly, FinMate, Circlo',
       description: `Explore the ${site.shortName} product family: ${products.map((p) => p.name).join(', ')}.`,
       body,
-      jsonLd: [breadcrumbLd([['Home', '/'], ['Products', '/products']])],
+      jsonLd: [breadcrumbLd([['Home', '/'], ['Products', '/products']]), { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${site.shortName} products`, url: absUrl('/products'), mainEntity: { '@type': 'ItemList', itemListElement: products.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: absUrl('/products/' + p.slug), name: p.name })) } }],
     }),
   };
 }

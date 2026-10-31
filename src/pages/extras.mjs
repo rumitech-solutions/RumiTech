@@ -44,7 +44,7 @@ ${cta({ title: 'Still curious?', text: 'Ask us anything — we read every messag
     breadcrumbLd([['Home', '/'], ['FAQ', '/faq']]),
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: flat.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
   ];
-  return { path: '/faq', html: layout({ path: '/faq', title: 'FAQ', description: `Frequently asked questions about ${site.name} and its products.`, body, jsonLd: ld }) };
+  return { path: '/faq', html: layout({ path: '/faq', title: 'FAQ — questions about RumiTech and its apps', description: `Answers to common questions about ${site.name} and its products: availability, privacy, platforms and how to get in touch.`, body, jsonLd: ld }) };
 }
 
 /* ───────────── Brand kit ───────────── */
@@ -98,7 +98,7 @@ export function brandPage() {
     </ul></div>
 </div></section>
 ${cta({ title: 'Writing about us?', text: 'Tell us what you’re working on and we’ll help where we can.', primary: ['Contact us', '/contact'], secondary: ['About RumiTech', '/about'] })}`;
-  return { path: '/brand', html: layout({ path: '/brand', title: 'Brand kit', description: `${site.name} logo, wordmark, colours and typography.`, body, jsonLd: [breadcrumbLd([['Home', '/'], ['Brand kit', '/brand']])] }) };
+  return { path: '/brand', html: layout({ path: '/brand', title: 'RumiTech brand kit — logo, colours & typography', description: `Download the ${site.name} emblem and wordmark, copy brand colours and see typography and usage guidance for press and partners.`, body, jsonLd: [breadcrumbLd([['Home', '/'], ['Brand kit', '/brand']])] }) };
 }
 
 function offlinePage() {

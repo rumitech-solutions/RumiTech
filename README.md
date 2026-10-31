@@ -73,3 +73,8 @@ footer links, sitemap and structured data appear automatically. Add `public/og/<
 ## v9 — security & resilience
 - Build writes a strict Content-Security-Policy into dist/_headers (inline script hashes computed automatically; no inline event handlers allowed).
 - /.well-known/security.txt, sitemap lastmod, light/dark theme-color, styled /offline fallback used by the service worker.
+
+## v10 — SEO
+- **Indexing is OFF until you set `SITE_ORIGIN`** (e.g. `https://yourdomain.com` as a Cloudflare Pages env var). While the origin is the placeholder, every page is `noindex` and `robots.txt` disallows all; once set, pages get canonical + hreflang + `index,follow,max-image-preview:large`, and `robots.txt`/`sitemap.xml` use the real domain.
+- Keyword-aware titles (≤ 65 chars) and 70–160 char descriptions; the build warns on long/short/duplicate ones.
+- JSON-LD: Organization (with contact email), WebSite, BreadcrumbList, AboutPage, ContactPage, CollectionPage/ItemList, FAQPage, SoftwareApplication (category per product), og:locale/og:image:alt.

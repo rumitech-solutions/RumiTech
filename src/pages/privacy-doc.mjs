@@ -83,7 +83,7 @@ export function privacyPage(p) {
       sections,
       theme: p.theme,
       crumbs: `<a href="/products">Products</a> <span aria-hidden="true">/</span> <a href="/products/${p.slug}">${esc(p.name)}</a> <span aria-hidden="true">/</span> <span>Privacy</span>`,
-      description: `Privacy policy for ${p.name}, a product of ${site.name}.`,
+      description: `Read the ${p.name} privacy policy: how ${p.name}, a product of ${site.name}, handles information, plus how to contact us about your data.`,
     }),
   };
 }
@@ -111,7 +111,7 @@ export function companyPrivacy() {
       intro: `How the ${esc(site.name)} website handles information.`,
       sections,
       crumbs: `<a href="/">Home</a> <span aria-hidden="true">/</span> <span>Privacy</span>`,
-      description: `Privacy policy for the ${site.name} website.`,
+      description: `The ${site.name} website privacy policy: no accounts, advertising trackers or analytics scripts, and how to contact us about your information.`,
     }),
   };
 }

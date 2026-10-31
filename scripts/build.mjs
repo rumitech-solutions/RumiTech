@@ -58,7 +58,21 @@ fs.writeFileSync(
   path.join(dist, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc><lastmod>${new Date().toISOString().slice(0, 10)}</lastmod></url>`).join('\n')}\n</urlset>\n`
 );
-fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${site.origin}/sitemap.xml\n`);
+const draft = site.origin.includes('rumitech.example');
+// While the origin is still the placeholder, ask crawlers to stay away (pages also carry noindex).
+fs.writeFileSync(path.join(dist, 'robots.txt'), draft ? `# Pre-launch: set SITE_ORIGIN to the real domain to open the site to search engines.\nUser-agent: *\nDisallow: /\n` : `User-agent: *\nAllow: /\n\nSitemap: ${site.origin}/sitemap.xml\n`);
+if (draft) warn('SEO: site is set to noindex + Disallow until SITE_ORIGIN is set to the real domain (then rebuild).');
+
+// ── SEO checks ──
+const seen = { title: new Map(), desc: new Map() };
+for (const p of pages.filter((x) => x.path !== '/404' && x.path !== '/offline')) {
+  const t = (p.html.match(/<title>(.*?)<\/title>/) || [])[1] || '';
+  const d = (p.html.match(/<meta name="description" content="(.*?)"/) || [])[1] || '';
+  if (t.length > 65) warn(`SEO: title too long (${t.length}) on ${p.path}`);
+  if (d.length < 70 || d.length > 165) warn(`SEO: description length ${d.length} on ${p.path} (aim for 70–160)`);
+  for (const [k, v] of [['title', t], ['desc', d]]) { if (seen[k].has(v)) warn(`SEO: duplicate ${k} on ${p.path} and ${seen[k].get(v)}`); seen[k].set(v, p.path); }
+  if (!draft && !p.html.includes('rel="canonical"')) warn(`SEO: missing canonical on ${p.path}`);
+}
 
 // ── validation ──
 const known = new Set(pages.map((p) => p.path));
