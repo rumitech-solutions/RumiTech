@@ -89,8 +89,20 @@ function contact() {
       .map(([t, d, subj]) => `<li class="reveal"><h2>${t}</h2><p>${d}</p>${email ? `<a class="btn btn-ghost" href="#form" data-topic="${subj}">Write to us</a>` : '<span class="btn btn-static" role="note">Not available yet</span>'}</li>`)
       .join('')}
   </ul>
-  ${form}
-  <p class="muted reveal">Prefer to email directly? <a href="mailto:${esc(email)}">${esc(email)}</a>. See also our <a href="/privacy">website privacy policy</a>.</p>
+  <div class="contact-split">
+    ${form}
+    <aside class="contact-aside reveal" aria-labelledby="aside-h">
+      <h2 id="aside-h">Helpful to include</h2>
+      <ul>
+        <li><b>Which product</b> you are writing about, if any.</li>
+        <li><b>What happened</b> and what you expected instead.</li>
+        <li><b>Your device and app version</b> for support questions.</li>
+      </ul>
+      <p class="muted">Please do not send passwords or sensitive personal details by email.</p>
+      <p>Prefer to email directly?<br><a href="mailto:${esc(email)}">${esc(email)}</a></p>
+      <p class="small">See our <a href="/privacy">website privacy policy</a>.</p>
+    </aside>
+  </div>
 </div></section>`;
   return {
     path: '/contact',

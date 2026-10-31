@@ -63,3 +63,6 @@ footer links, sitemap and structured data appear automatically. Add `public/og/<
 - Scroll-driven sticky "story" section that switches between products as you scroll.
 - Glossy primary buttons, subtle grain overlay, outlined product-name watermark on product heroes, giant footer wordmark.
 - All motion respects `prefers-reduced-motion`; both themes were contrast- and overflow-tested.
+
+## v7 — polish
+- Contact page: two-column layout with a "Helpful to include" side panel; consistent spacing under the projects list.

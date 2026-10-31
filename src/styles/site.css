@@ -799,3 +799,16 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1000;o
 .kbd-help dd{margin:0;opacity:.8;font-size:.92rem}
 .kbd-help kbd{font:600 .78rem/1 inherit;padding:4px 7px;border-radius:6px;border:1px solid rgb(var(--wh)/.25);background:rgb(var(--wh)/.06)}
 @media(prefers-reduced-motion:reduce){.constellation .fan,.constellation .node{transform:none;translate:none;transition:none}}
+
+/* v7: polish */
+.contact-split{display:grid;gap:clamp(20px,3vw,40px);align-items:start;margin-block:clamp(32px,5vw,56px)}
+.contact-split .cform{margin:0;max-width:none}
+.contact-aside{padding:clamp(20px,3vw,32px);border:1px dashed var(--line-2);border-radius:var(--r-lg)}
+.contact-aside h2{font-size:1.2rem;margin:0 0 12px}
+.contact-aside ul{margin:0 0 16px;padding:0;list-style:none;display:grid;gap:10px}
+.contact-aside li{padding-left:18px;position:relative;color:var(--text-2)}
+.contact-aside li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:2px;background:var(--at)}
+.contact-aside p{margin:0 0 12px}
+@media(min-width:900px){.contact-split{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}.contact-aside{position:sticky;top:96px}}
+.project-list+.muted,.project-list+p{margin-top:clamp(28px,4vw,48px)}
+.section>.wrap>ul+p.muted{margin-top:clamp(28px,4vw,48px)}
