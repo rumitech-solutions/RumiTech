@@ -66,3 +66,6 @@ footer links, sitemap and structured data appear automatically. Add `public/og/<
 
 ## v7 — polish
 - Contact page: two-column layout with a "Helpful to include" side panel; consistent spacing under the projects list.
+
+## v8 — finishing touches
+- Balanced headings, themed text selection, aligned status badges, accent-ruled stats, high-contrast and forced-colors support.

@@ -812,3 +812,15 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1000;o
 @media(min-width:900px){.contact-split{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}.contact-aside{position:sticky;top:96px}}
 .project-list+.muted,.project-list+p{margin-top:clamp(28px,4vw,48px)}
 .section>.wrap>ul+p.muted{margin-top:clamp(28px,4vw,48px)}
+
+/* v8: finishing touches */
+.stats-list b{background:linear-gradient(180deg,var(--text) 30%,var(--at));-webkit-background-clip:text;background-clip:text}
+.stats-list li{border-top:2px solid color-mix(in srgb,var(--at) 55%,transparent);padding-top:18px}
+.evo-col li a>span:first-of-type{flex:1}
+.evo-col li a .badge,.evo-col li a [class*=status]{margin-left:auto}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+::selection{background:color-mix(in srgb,var(--brand) 70%,transparent);color:#0a0d12}
+html{scrollbar-color:rgb(var(--wh)/.28) transparent;scrollbar-width:thin}
+@media(prefers-contrast:more){:root{--line:rgb(var(--wh)/.35);--line-2:rgb(var(--wh)/.55);--muted:var(--text-2)}.btn-ghost{border-width:2px}}
+@media(forced-colors:active){.btn,.chip,.badge{border:1px solid ButtonText}.stats-list b{color:CanvasText;background:none}}
