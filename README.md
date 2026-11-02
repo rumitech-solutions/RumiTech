@@ -78,3 +78,6 @@ footer links, sitemap and structured data appear automatically. Add `public/og/<
 - **Indexing is OFF until you set `SITE_ORIGIN`** (e.g. `https://yourdomain.com` as a Cloudflare Pages env var). While the origin is the placeholder, every page is `noindex` and `robots.txt` disallows all; once set, pages get canonical + hreflang + `index,follow,max-image-preview:large`, and `robots.txt`/`sitemap.xml` use the real domain.
 - Keyword-aware titles (≤ 65 chars) and 70–160 char descriptions; the build warns on long/short/duplicate ones.
 - JSON-LD: Organization (with contact email), WebSite, BreadcrumbList, AboutPage, ContactPage, CollectionPage/ItemList, FAQPage, SoftwareApplication (category per product), og:locale/og:image:alt.
+
+## v11 — product page tidy
+- Hero no longer repeats the "not yet available" note next to the notify button; "Who it is for" heading sized for readability.

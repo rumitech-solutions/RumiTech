@@ -824,3 +824,8 @@ p{text-wrap:pretty}
 html{scrollbar-color:rgb(var(--wh)/.28) transparent;scrollbar-width:thin}
 @media(prefers-contrast:more){:root{--line:rgb(var(--wh)/.35);--line-2:rgb(var(--wh)/.55);--muted:var(--text-2)}.btn-ghost{border-width:2px}}
 @media(forced-colors:active){.btn,.chip,.badge{border:1px solid ButtonText}.stats-list b{color:CanvasText;background:none}}
+
+/* v11: product page tidy */
+.p-hero .btn-row .btn-static:not(:only-child){display:none}
+.product #overview h2{font-size:clamp(1.8rem,3.6vw,2.7rem);line-height:1.12;max-width:20ch}
+.product #overview .prose h3{margin-top:0}
