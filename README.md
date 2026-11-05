@@ -81,3 +81,6 @@ footer links, sitemap and structured data appear automatically. Add `public/og/<
 
 ## v11 — product page tidy
 - Hero no longer repeats the "not yet available" note next to the notify button; "Who it is for" heading sized for readability.
+
+## v12 — corporate refit
+Redesigned to look like a normal company website: standard top navigation, calmer type sizes, a simple hero with a product list, product/project cards, "how we work" columns, and a plain contact CTA. Removed decorative effects (kinetic headline, floating pill nav, grain overlay, outlined watermarks, giant footer wordmark, marquee, scroll-story, stats band, parallax phones). Light theme uses dark solid buttons.

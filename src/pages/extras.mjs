@@ -52,7 +52,7 @@ const lum = (hex) => {
   const c = hex.replace('#', '').match(/../g).map((h) => parseInt(h, 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
   return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
 };
-const swatch = (name, hex) => `<li><button type="button" class="swatch" data-copy="${hex}" style="--sw:${hex};--sw-ink:${lum(hex) > 0.4 ? '#0a0d12' : '#F3EFE8'}" aria-label="Copy ${esc(name)} ${hex}"><span class="sw-n">${esc(name)}</span><span class="sw-h">${hex}</span></button></li>`;
+const swatch = (name, hex) => `<li><button type="button" class="swatch" data-copy="${hex}" style="--sw:${hex};--sw-ink:${lum(hex) > 0.18 ? '#0a0d12' : '#F3EFE8'}" aria-label="Copy ${esc(name)} ${hex}"><span class="sw-n">${esc(name)}</span><span class="sw-h">${hex}</span></button></li>`;
 
 export function brandPage() {
   const core = [['Ink', '#080B10'], ['Surface', '#111822'], ['Warm white', '#F3EFE8'], ['Lime', '#C8F560'], ['Cyan', '#5CE1E6']];
