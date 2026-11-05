@@ -84,3 +84,6 @@ footer links, sitemap and structured data appear automatically. Add `public/og/<
 
 ## v12 — corporate refit
 Redesigned to look like a normal company website: standard top navigation, calmer type sizes, a simple hero with a product list, product/project cards, "how we work" columns, and a plain contact CTA. Removed decorative effects (kinetic headline, floating pill nav, grain overlay, outlined watermarks, giant footer wordmark, marquee, scroll-story, stats band, parallax phones). Light theme uses dark solid buttons.
+
+## v13 — new logo
+New premium R monogram: `public/brand/rumitech-emblem.svg` is the source; `python3 scripts/make-images.py` regenerates icons and social images from it (needs Pillow + Playwright). Favicon, wordmarks, header/footer emblem and the brand page all use it.

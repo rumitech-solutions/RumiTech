@@ -11,15 +11,11 @@ export const contactEmail = (kind = 'general') =>
   (kind === 'support' && site.contact.supportEmail) || site.contact.email || '';
 
 // ── Brand emblem: a small seed becoming a connected, larger form ──
-export const emblem = (size = 36) => `
-<svg class="emblem" width="${size}" height="${size}" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-  <rect x="1" y="1" width="46" height="46" rx="13" fill="#0D1219" stroke="rgba(255,255,255,.14)"/>
-  <path d="M13 34 C13 22 20 16 28 16 L35 16" fill="none" stroke="#C8F560" stroke-width="3" stroke-linecap="round"/>
-  <path d="M20 34 C20 28 24 25 29 25 L35 25" fill="none" stroke="#5CE1E6" stroke-width="3" stroke-linecap="round" opacity=".9"/>
-  <circle cx="13" cy="34" r="3.2" fill="#C8F560"/>
-  <circle cx="35" cy="16" r="3.2" fill="#F3EFE8"/>
-  <circle cx="35" cy="25" r="2.4" fill="#F3EFE8" opacity=".75"/>
-</svg>`;
+let _eid = 0;
+export const emblem = (size = 36) => {
+  const u = `rt${++_eid}`;
+  return `<svg class="emblem" width="${size}" height="${size}" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><linearGradient id="${u}b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#18243F"/><stop offset="1" stop-color="#070B12"/></linearGradient><linearGradient id="${u}a" gradientUnits="userSpaceOnUse" x1="33" y1="34" x2="45" y2="47"><stop offset="0" stop-color="#C8F560"/><stop offset="1" stop-color="#5CE1E6"/></linearGradient></defs><rect x="1" y="1" width="62" height="62" rx="17" fill="url(#${u}b)"/><rect x="1.5" y="1.5" width="61" height="61" rx="16.5" fill="none" stroke="#fff" stroke-opacity=".16"/><path d="M21.75 46V18H33.5a8 8 0 0 1 0 16H21.75" fill="none" stroke="#F3EFE8" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 34l10.5 12" fill="none" stroke="url(#${u}a)" stroke-width="6.5" stroke-linecap="round"/></svg>`;
+};
 
 export const wordmark = () => `
 <a class="brand" href="/" aria-label="${esc(site.name)} — home">

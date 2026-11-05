@@ -72,7 +72,7 @@ export function brandPage() {
     <figure class="tile tile-dark reveal"><div class="tile-art"><img src="/brand/rumitech-wordmark-dark-bg.svg" alt="RumiTech wordmark for dark backgrounds" width="320" height="64" loading="lazy"></div><figcaption>Wordmark · dark backgrounds<span>${dl('/brand/rumitech-wordmark-dark-bg.svg', 'SVG')}</span></figcaption></figure>
     <figure class="tile tile-light reveal"><div class="tile-art"><img src="/brand/rumitech-wordmark-light-bg.svg" alt="RumiTech wordmark for light backgrounds" width="320" height="64" loading="lazy"></div><figcaption>Wordmark · light backgrounds<span>${dl('/brand/rumitech-wordmark-light-bg.svg', 'SVG')}</span></figcaption></figure>
   </div>
-  <p class="muted reveal">The emblem shows a small seed path growing into a larger connected form — our idea of small ideas becoming useful products.</p>
+  <p class="muted reveal">The emblem is a bold letter R on a deep navy tile, with the leg picking up our lime-to-aqua accent — a simple, confident mark for small ideas that grow into useful products.</p>
 </div></section>
 
 <section class="section section-alt" aria-labelledby="col-h"><div class="wrap">
