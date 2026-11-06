@@ -42,7 +42,7 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<meta name="robots" cont
 <meta name="twitter:title" content="${esc(fullTitle)}">
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${og}">
-<script>(function(){var d=document.documentElement,t;d.classList.add('js');try{t=localStorage.getItem('rt-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name=theme-color]');if(m)m.content=t==='light'?'#F7F6F1':'#080B10'})()</script>
+<script>(function(){var d=document.documentElement,t;d.classList.add('js');try{t=localStorage.getItem('rt-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t='light'}d.setAttribute('data-theme',t);var m=document.querySelector('meta[name=theme-color]');if(m)m.content=t==='light'?'#F7F6F1':'#080B10'})()</script>
 <link rel="preload" href="/assets/fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-semibold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css">

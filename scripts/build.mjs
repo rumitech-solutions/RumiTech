@@ -20,12 +20,18 @@ fs.mkdirSync(dist, { recursive: true });
 fs.cpSync(path.join(root, 'public'), dist, { recursive: true });
 fs.copyFileSync(path.join(root, 'src/styles/site.css'), path.join(dist, 'assets/site.css'));
 
+// content-hash every first-party asset URL so a new page can never be paired with stale cached CSS/JS
+const ver = (f) => crypto.createHash('sha256').update(fs.readFileSync(path.join(dist, f))).digest('hex').slice(0, 10);
+const VERS = { '/assets/site.css': ver('assets/site.css'), '/assets/site.js': ver('assets/site.js'), '/assets/assistant.js': ver('assets/assistant.js') };
+const stamp = (html) => html.replace(/(["'])(\/assets\/(?:site\.css|site\.js|assistant\.js))\1/g, (m, q, u) => `${q}${u}?v=${VERS[u]}${q}`);
+
 const pages = [...homePages(), ...productPages(), ...projectPages(), ...companyPages(), ...extraPages()];
 
 for (const p of pages) {
   const file = p.file || (p.path === '/' ? 'index.html' : `${p.path.slice(1)}/index.html`);
   const out = path.join(dist, file);
   fs.mkdirSync(path.dirname(out), { recursive: true });
+  p.html = stamp(p.html);
   fs.writeFileSync(out, p.html);
 }
 

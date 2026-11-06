@@ -87,3 +87,6 @@ Redesigned to look like a normal company website: standard top navigation, calme
 
 ## v13 — new logo
 New premium R monogram: `public/brand/rumitech-emblem.svg` is the source; `python3 scripts/make-images.py` regenerates icons and social images from it (needs Pillow + Playwright). Favicon, wordmarks, header/footer emblem and the brand page all use it.
+
+## v14 — cache fix
+- CSS/JS URLs now carry a content hash (`?v=...`) so a new page can never pair with stale cached styles; service worker is network-first for pages and purges old caches (`rt-v9`). Light theme is the default; the visitor choice is remembered.
