@@ -328,3 +328,13 @@
 
 /* v8: reload button (CSP-safe, no inline handlers) */
 document.addEventListener('click', (e) => { if (e.target.closest && e.target.closest('[data-reload]')) location.reload(); });
+
+/* v16: products mega menu toggle */
+(() => {
+  const li = document.querySelector('.has-mega'); if (!li) return;
+  const btn = li.querySelector('.mega-toggle');
+  const set = (open) => { li.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); };
+  btn.addEventListener('click', () => set(!li.classList.contains('open')));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && li.classList.contains('open')) { set(false); btn.focus(); } });
+  document.addEventListener('click', (e) => { if (!li.contains(e.target)) set(false); });
+})();

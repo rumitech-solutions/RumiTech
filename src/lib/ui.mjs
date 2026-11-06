@@ -118,6 +118,20 @@ const nav = [
   ['/contact', 'Contact'],
 ];
 
+const mega = () => `
+<div class="mega" id="mega-products">
+  <div class="mega-in">
+    <ul class="mega-list">
+      ${products.map((p) => `<li style="${themeStyle(p.theme)}"><a href="/products/${p.slug}"><i aria-hidden="true"></i><span><b>${esc(p.name)}</b><small>${esc(p.tagline)}</small></span></a></li>`).join('')}
+    </ul>
+    <div class="mega-side">
+      <p>Projects</p>
+      ${enabledProjects().map((p) => `<a href="/projects/${p.slug}">${esc(p.name)}</a>`).join('')}
+      <a class="mega-all" href="/products">View all products <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</div>`;
+
 export const header = (path) => `
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header" data-header>
@@ -125,7 +139,7 @@ export const header = (path) => `
     ${wordmark()}
     <nav class="nav" aria-label="Primary">
       <ul>
-        ${nav.map(([h, l]) => `<li><a href="${h}"${isCurrent(path, h) ? ' aria-current="page"' : ''}>${l}</a></li>`).join('')}
+        ${nav.map(([h, l]) => h === '/products' ? `<li class="has-mega"><a href="${h}"${isCurrent(path, h) ? ' aria-current="page"' : ''}>${l}</a><button class="mega-toggle" type="button" aria-expanded="false" aria-controls="mega-products" aria-label="Show products menu"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>${mega()}</li>` : `<li><a href="${h}"${isCurrent(path, h) ? ' aria-current="page"' : ''}>${l}</a></li>`).join('')}
       </ul>
     </nav>
     <button class="icon-btn search-btn" type="button" data-palette-open aria-haspopup="dialog" aria-label="Search the site (Ctrl K)">

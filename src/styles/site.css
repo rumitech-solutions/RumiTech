@@ -985,3 +985,47 @@ body{font-size:1rem;line-height:1.65}
 :root[data-theme] .site-footer .foot-base,:root[data-theme] .site-footer .foot-bar{color:#A9B4C5}
 :root[data-theme] .site-footer .foot-top{color:#D5DBE6}
 @media(min-width:900px){.foot-bar{margin-right:170px}}
+
+/* ═════ v16: mega menu + inner-page polish ═════ */
+.has-mega{position:relative;display:flex;align-items:center}
+.mega-toggle{all:unset;box-sizing:border-box;cursor:pointer;display:inline-grid;place-items:center;width:24px;height:24px;margin-left:-6px;border-radius:50%;color:var(--muted);transition:transform .2s,color .2s}
+.mega-toggle:hover{color:var(--text)}
+.mega-toggle:focus-visible{outline:3px solid var(--a);outline-offset:2px}
+.mega-toggle[aria-expanded=true] svg{transform:rotate(180deg)}
+.mega{position:absolute;top:100%;left:-28px;width:min(720px,92vw);padding-top:16px;visibility:hidden;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .18s,transform .18s,visibility 0s .18s;z-index:60}
+.has-mega:hover .mega,.has-mega:focus-within .mega,.has-mega.open .mega{visibility:visible;opacity:1;transform:none;pointer-events:auto;transition-delay:0s}
+.mega-in{display:grid;grid-template-columns:1.6fr 1fr;gap:0;border:1px solid var(--line-2);border-radius:20px;background:var(--surface);box-shadow:0 30px 70px -28px rgba(10,16,28,.5);overflow:hidden}
+.mega-list{list-style:none;margin:0;padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.mega-list a{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;text-decoration:none}
+.mega-list a:hover,.mega-list a:focus-visible{background:var(--surface-2)}
+.mega-list i{width:10px;height:10px;border-radius:50%;background:var(--a);margin-top:7px;flex:none}
+.mega-list b{display:block;font-weight:600;font-size:.98rem;line-height:1.3}
+.mega-list small{display:block;color:var(--muted);font-size:.84rem;line-height:1.4;margin-top:2px}
+.mega-side{padding:22px 22px 18px;background:var(--surface-2);border-left:1px solid var(--line);display:flex;flex-direction:column;gap:2px}
+.mega-side p{margin:0 0 8px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.mega-side a{text-decoration:none;padding:7px 0;font-weight:500;font-size:.95rem}
+.mega-side a:hover{color:var(--at)}
+.mega-side .mega-all{margin-top:auto;padding-top:16px;color:var(--at);font-weight:600}
+@media(max-width:899px){.mega,.mega-toggle{display:none}}
+@media(prefers-reduced-motion:reduce){.mega{transition:none;transform:none}}
+
+/* inner pages: soft tinted headers like the home hero */
+.page-hero{background:radial-gradient(50% 90% at 90% 0%,rgba(92,225,230,.16),transparent 62%),radial-gradient(40% 80% at 0% 0%,rgba(200,245,96,.12),transparent 62%)}
+:root[data-theme=dark] .page-hero{background:radial-gradient(50% 90% at 90% 0%,rgba(92,225,230,.08),transparent 62%),radial-gradient(40% 80% at 0% 0%,rgba(200,245,96,.06),transparent 62%)}
+.p-hero{background:radial-gradient(55% 95% at 88% 0%,color-mix(in srgb,var(--a) 22%,transparent),transparent 66%)}
+.p-hero .device{box-shadow:0 40px 70px -30px rgba(5,10,20,.7),0 0 0 5px rgb(var(--wh)/.04)}
+.facts{box-shadow:inset 0 1px 0 var(--line)}
+.facts dl>div{padding-block:20px}
+.feat-grid li,.topics li,.related a,.index-card{box-shadow:var(--sh-1)}
+.index-card:hover,.related a:hover{box-shadow:var(--sh-2)}
+.faq-list details,.faq details{box-shadow:none}
+.nav .mega-list{display:grid;grid-template-columns:1fr 1fr;gap:4px;flex-direction:initial;align-items:stretch}
+.nav .mega-list li{display:block}
+.nav .mega-list a{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;color:var(--text);background:none;white-space:normal;height:auto;font-size:1rem}
+.nav .mega-list a:hover{background:var(--surface-2)}
+.nav .mega-list b{font-weight:600}
+.nav .mega-list small{white-space:normal}
+.nav .mega-side a{display:block;padding:7px 0;border-radius:0;height:auto;background:none;color:var(--text)}
+.nav .mega-side .mega-all{color:var(--at)}
+.nav .mega-side a:hover{background:none;color:var(--at)}
+.nav .mega-list a[aria-current]::after,.nav .mega-side a::after{display:none}

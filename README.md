@@ -93,3 +93,6 @@ New premium R monogram: `public/brand/rumitech-emblem.svg` is the source; `pytho
 
 ## v15 — premium finish
 Hero with soft gradient and illustrative phone stage, product cards with device art, layered shadows, gradient-accent headline, deep-navy CTA band and footer.
+
+## v16 — navigation
+Products mega menu (hover, keyboard and click; Escape closes), tinted inner-page headers.
