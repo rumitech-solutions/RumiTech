@@ -90,3 +90,6 @@ New premium R monogram: `public/brand/rumitech-emblem.svg` is the source; `pytho
 
 ## v14 — cache fix
 - CSS/JS URLs now carry a content hash (`?v=...`) so a new page can never pair with stale cached styles; service worker is network-first for pages and purges old caches (`rt-v9`). Light theme is the default; the visitor choice is remembered.
+
+## v15 — premium finish
+Hero with soft gradient and illustrative phone stage, product cards with device art, layered shadows, gradient-accent headline, deep-navy CTA band and footer.

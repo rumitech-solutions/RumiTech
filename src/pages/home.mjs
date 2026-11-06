@@ -79,19 +79,22 @@ export function homePages() {
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="eyebrow">${esc(site.name)}</p>
-      <h1>Thoughtfully built software for everyday life.</h1>
+      <h1>Thoughtfully built software for <span class="grad">everyday life.</span></h1>
       <p class="hero-lead">${esc(site.name)} is an independent product studio. We design and build useful, easy-to-use apps — each one focused on a real, everyday need.</p>
       <div class="btn-row">
         <a class="btn btn-primary btn-lg" href="/products">Explore our products</a>
         <a class="btn btn-ghost btn-lg" href="/contact">Contact us</a>
       </div>
     </div>
-    <aside class="hero-panel" aria-label="Our products">
-      <h2>Our products</h2>
-      <ul>
-        ${products.map((p) => `<li style="${themeStyle(p.theme)}"><a href="/products/${p.slug}"><i aria-hidden="true"></i><span><b>${esc(p.name)}</b><small>${esc(p.category)}</small></span><span class="arr" aria-hidden="true">→</span></a></li>`).join('')}
+    <div class="stage" aria-label="The RumiTech product family">
+      <div class="stage-art"><div class="fan" aria-hidden="true">
+        ${[['d-l', 'imaanly'], ['d-c', 'finmate'], ['d-r', 'circlo']].map(([c, sl]) => `<div class="fan-d ${c}">${mock(products.find((q) => q.slug === sl))}</div>`).join('')}
+      </div></div>
+      <ul class="stage-chips">
+        ${products.map((p) => `<li style="${themeStyle(p.theme)}"><a href="/products/${p.slug}"><i aria-hidden="true"></i>${esc(p.name)}</a></li>`).join('')}
       </ul>
-    </aside>
+      <p class="stage-cap">Illustrative interfaces — not screenshots</p>
+    </div>
   </div>
 </section>
 
@@ -113,6 +116,7 @@ export function homePages() {
     </header>
     <ul class="pcards">
       ${products.map((p) => `<li class="reveal" style="${themeStyle(p.theme)}"><a class="pcard" href="/products/${p.slug}">
+        <span class="pc-art" aria-hidden="true">${mock(p)}</span>
         <span class="pc-top"><i aria-hidden="true"></i><span class="pc-cat">${esc(p.category)}</span></span>
         <h3>${esc(p.name)}</h3>
         <p class="pc-tag">${esc(p.tagline)}</p>

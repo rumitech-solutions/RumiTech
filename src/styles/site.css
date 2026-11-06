@@ -911,3 +911,77 @@ body{font-size:1rem;line-height:1.65}
 .closing{padding-block:clamp(48px,7vw,88px)}
 .values{grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
 .hero h1{max-width:22ch}
+
+/* ═════ v15: premium finish ═════ */
+:root{--sh-1:0 1px 2px rgba(10,16,28,.06),0 14px 34px -20px rgba(10,16,28,.22);--sh-2:0 2px 4px rgba(10,16,28,.06),0 26px 54px -24px rgba(10,16,28,.34)}
+:root[data-theme=dark]{--sh-1:0 1px 2px rgba(0,0,0,.4),0 14px 34px -18px rgba(0,0,0,.7);--sh-2:0 2px 4px rgba(0,0,0,.4),0 28px 56px -22px rgba(0,0,0,.8)}
+
+/* hero */
+.hero-corp{background:radial-gradient(55% 75% at 88% 8%,rgba(92,225,230,.20),transparent 62%),radial-gradient(45% 65% at 4% 0%,rgba(200,245,96,.16),transparent 62%)}
+:root[data-theme=dark] .hero-corp{background:radial-gradient(55% 75% at 88% 8%,rgba(92,225,230,.10),transparent 62%),radial-gradient(45% 65% at 4% 0%,rgba(200,245,96,.08),transparent 62%)}
+.hero-corp .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:6px 14px 6px 12px;border:1px solid var(--line-2);border-radius:999px;background:var(--surface);box-shadow:var(--sh-1);font-size:.74rem}
+.hero-corp .eyebrow::before{width:7px;height:7px;border-radius:50%;background:var(--at);box-shadow:0 0 0 4px color-mix(in srgb,var(--at) 18%,transparent)}
+.hero-corp h1{margin-top:20px}
+.grad{background:linear-gradient(95deg,#0F1722 0%,#1F7A6B 70%);-webkit-background-clip:text;background-clip:text;color:transparent}
+:root[data-theme=dark] .grad{background:linear-gradient(95deg,#C8F560,#5CE1E6)}
+.hero-corp .btn-lg{padding-inline:26px}
+
+/* stage with phones */
+.stage{position:relative;border:1px solid var(--line);border-radius:28px;padding:18px 18px 14px;background:linear-gradient(160deg,color-mix(in srgb,var(--surface) 92%,transparent),color-mix(in srgb,var(--surface-2) 88%,transparent));box-shadow:var(--sh-2)}
+.stage::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(60% 50% at 50% 38%,rgba(92,225,230,.18),transparent 70%),radial-gradient(40% 40% at 20% 80%,rgba(200,245,96,.14),transparent 70%)}
+.stage-art{position:relative;aspect-ratio:1/.92}
+.stage-art .fan{inset:0}
+.stage .fan-d .device{animation:none;box-shadow:0 36px 60px -26px rgba(5,10,20,.7),0 0 0 4px rgb(var(--wh)/.04)}
+.stage-chips{position:relative;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;list-style:none;margin:6px 0 4px;padding:0}
+.stage-chips a{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid var(--line-2);border-radius:999px;background:var(--surface);font-size:.88rem;font-weight:600;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.stage-chips a:hover{transform:translateY(-1px);box-shadow:var(--sh-1)}
+.stage-chips i{width:8px;height:8px;border-radius:50%;background:var(--a)}
+.stage-cap{position:relative;margin:6px 0 0;text-align:center;font-size:.74rem;color:var(--muted)}
+
+/* cards with product art */
+.pcard{box-shadow:var(--sh-1);overflow:hidden}
+.pcard:hover{box-shadow:var(--sh-2)}
+.pc-art{position:relative;display:block;height:200px;margin:-24px -24px 10px;overflow:hidden;background:radial-gradient(70% 90% at 50% 10%,color-mix(in srgb,var(--a) 22%,transparent),transparent 72%),linear-gradient(180deg,var(--surface-2),var(--surface))}
+.pc-art .device{position:absolute;left:50%;top:30px;width:138px;transform:translateX(-50%);margin:0;box-shadow:0 24px 40px -16px rgba(5,10,20,.55)}
+.pc-art figcaption{display:none}
+.pcard:hover .pc-art .device{transform:translateX(-50%) translateY(-4px);transition:transform .3s var(--ease)}
+
+/* values / strip */
+.v-ic{background:linear-gradient(160deg,var(--surface),var(--surface-2));box-shadow:var(--sh-1)}
+.strip{background:var(--surface-2)}
+.section-alt{background:linear-gradient(180deg,var(--surface-2),var(--ink))}
+
+/* header depth */
+.site-header.scrolled{box-shadow:0 10px 28px -20px rgba(10,16,28,.4)}
+:root[data-theme=light] .btn-primary,:root[data-theme=light] .btn.btn-primary{background-image:linear-gradient(180deg,#1E2837,#0C121A)!important;box-shadow:0 8px 18px -10px rgba(12,18,26,.7),inset 0 1px 0 rgba(255,255,255,.14)!important}
+.btn-ghost{box-shadow:var(--sh-1)}
+
+/* closing band + footer: deep navy */
+.closing{background:radial-gradient(60% 140% at 85% 0%,rgba(92,225,230,.20),transparent 60%),radial-gradient(50% 120% at 8% 100%,rgba(200,245,96,.16),transparent 60%),linear-gradient(135deg,#0A1222,#111D36);border:0;color:#F3EFE8}
+.closing h2{color:#fff}
+.closing p{color:#B7C1D1}
+.closing em{color:#C8F560}
+.closing .btn-primary,:root[data-theme=light] .closing .btn-primary{background:#C8F560!important;background-image:none!important;color:#0A0D12!important;border-color:#C8F560!important;box-shadow:0 10px 24px -12px rgba(200,245,96,.7)!important}
+.closing .btn-ghost,:root[data-theme=light] .closing .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.32);box-shadow:none}
+.site-footer{background:#080E1B;color:#A9B4C5;border-top:0}
+.site-footer a{color:#D5DBE6}
+.site-footer a:hover{color:#fff}
+.site-footer h2,.site-footer h3,.site-footer .foot-h{color:#7E8AA0}
+.site-footer .brand,.site-footer .wordmark{color:#fff}
+.site-footer .wordmark small{color:#8793A8}
+.site-footer p,.site-footer .muted,.site-footer small{color:#A9B4C5}
+.foot-bottom,.site-footer hr{border-color:rgba(255,255,255,.1)}
+.foot-base{border-top:1px solid rgba(255,255,255,.1)}
+.foot-grid h2,.foot-grid h3,.foot-grid h4{color:#7E8AA0}
+/* v15b: beat the light-theme overrides for the navy band + footer */
+:root[data-theme] .closing{background:radial-gradient(60% 140% at 85% 0%,rgba(92,225,230,.20),transparent 60%),radial-gradient(50% 120% at 8% 100%,rgba(200,245,96,.16),transparent 60%),linear-gradient(135deg,#0A1222,#111D36);border:0}
+:root[data-theme] .closing em{color:#C8F560}
+:root[data-theme] .closing h2{color:#fff}
+:root[data-theme] .closing p{color:#B7C1D1}
+:root[data-theme] .site-footer a,:root[data-theme] .site-footer li a,:root[data-theme] .site-footer .foot-grid a{color:#D5DBE6}
+:root[data-theme] .site-footer a:hover{color:#fff}
+:root[data-theme] .site-footer .foot-grid h2,:root[data-theme] .site-footer .foot-grid h3,:root[data-theme] .site-footer .foot-grid h4,:root[data-theme] .site-footer .foot-grid strong{color:#7E8AA0}
+:root[data-theme] .site-footer .foot-contact a{text-decoration-color:rgba(255,255,255,.4)}
+:root[data-theme] .site-footer .foot-base,:root[data-theme] .site-footer .foot-bar{color:#A9B4C5}
+:root[data-theme] .site-footer .foot-top{color:#D5DBE6}
+@media(min-width:900px){.foot-bar{margin-right:170px}}
