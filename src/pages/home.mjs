@@ -134,9 +134,13 @@ export function homePages() {
       <h2 id="phil-h">Small ideas, carefully grown into useful products</h2>
       <p>We would rather build fewer things that work well than many things that merely exist.</p>
     </header>
-    <ul class="values">
-      ${BENTO.map(([ic, t, d]) => `<li class="reveal"><span class="v-ic">${ICON(ic)}</span><h3>${esc(t)}</h3><p>${esc(d)}</p></li>`).join('')}
-    </ul>
+    <div class="bento2">
+      <article class="bt bt-a reveal"><div class="bt-vis" aria-hidden="true"><svg viewBox="0 0 240 100"><circle cx="40" cy="30" r="14" fill="#3FC79A"/><circle cx="82" cy="30" r="14" fill="#FFA94D"/><circle cx="124" cy="30" r="14" fill="#6C9BFF"/><circle cx="166" cy="30" r="14" fill="#FF8272"/><rect x="26" y="58" width="150" height="9" rx="4.5" fill="currentColor" opacity=".22"/><rect x="26" y="76" width="96" height="9" rx="4.5" fill="currentColor" opacity=".12"/></svg></div><h3>Thoughtful design</h3><p>Interfaces that feel obvious, calm and respectful of your attention.</p></article>
+      <article class="bt bt-b reveal"><div class="bt-vis" aria-hidden="true"><svg viewBox="0 0 240 100"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="22" r="9" opacity=".9"/><path d="m26 22 3 3 5-6"/><circle cx="30" cy="50" r="9" opacity=".9"/><path d="m26 50 3 3 5-6"/><circle cx="30" cy="78" r="9" opacity=".35"/></g><rect x="52" y="18" width="130" height="8" rx="4" fill="currentColor" opacity=".25"/><rect x="52" y="46" width="104" height="8" rx="4" fill="currentColor" opacity=".25"/><rect x="52" y="74" width="80" height="8" rx="4" fill="currentColor" opacity=".12"/></svg></div><h3>Practical usefulness</h3><p>Every product starts from a real, everyday problem.</p></article>
+      <article class="bt bt-c reveal"><div class="bt-vis" aria-hidden="true"><svg viewBox="0 0 240 100"><path d="M0 70H240" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="3 6"/><path d="M0 62C26 62 26 38 52 38S78 62 104 62 130 38 156 38 182 62 208 62 226 50 240 46" fill="none" stroke="var(--at)" stroke-width="3" stroke-linecap="round"/></svg></div><h3>Reliability</h3><p>Software should behave the way you expect, every time.</p></article>
+      <article class="bt bt-d reveal"><div class="bt-vis" aria-hidden="true"><svg viewBox="0 0 240 100"><g fill="none" stroke="var(--at)" stroke-width="3" stroke-linecap="round"><rect x="92" y="44" width="56" height="42" rx="9" fill="currentColor" fill-opacity=".08" stroke="currentColor" stroke-opacity=".5"/><path d="M104 44V34a16 16 0 0 1 32 0v10"/></g><circle cx="120" cy="64" r="5" fill="var(--at)"/></svg></div><h3>Privacy-conscious</h3><p>We treat what people share with us as something to handle carefully.</p></article>
+      <article class="bt bt-e reveal"><div class="bt-vis" aria-hidden="true"><svg viewBox="0 0 240 100"><g fill="var(--at)"><rect x="52" y="62" width="26" height="26" rx="6" opacity=".35"/><rect x="88" y="48" width="26" height="40" rx="6" opacity=".55"/><rect x="124" y="32" width="26" height="56" rx="6" opacity=".8"/><rect x="160" y="14" width="26" height="74" rx="6"/></g></svg></div><h3>Continuous improvement</h3><p>Products are never finished — we keep refining them.</p></article>
+    </div>
   </div>
 </section>
 
@@ -157,6 +161,16 @@ export function homePages() {
     </ul>
   </div>
 </section>
+
+${contactEmail('general') ? `<section class="section notify-sec" aria-labelledby="notify-h"><div class="wrap"><div class="notify reveal">
+  <div><p class="eyebrow">Stay in the loop</p><h2 id="notify-h">Be first to hear when a product launches</h2><p>Leave your email and we will open your email app with a short message to us. We do not run a mailing list or any tracking on this site.</p></div>
+  <form class="notify-form" data-notify data-email="${esc(contactEmail('general'))}" novalidate>
+    <label class="sr" for="n-email">Your email address</label>
+    <input id="n-email" type="email" autocomplete="email" placeholder="you@example.com" required>
+    <button class="btn btn-primary btn-lg" type="submit">Keep me posted</button>
+    <p class="form-status" role="status" aria-live="polite" data-notify-status></p>
+  </form>
+</div></div></section>` : ''}
 
 ${cta({
   title: 'Have a question or an idea?',

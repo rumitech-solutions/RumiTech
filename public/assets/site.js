@@ -338,3 +338,17 @@ document.addEventListener('click', (e) => { if (e.target.closest && e.target.clo
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && li.classList.contains('open')) { set(false); btn.focus(); } });
   document.addEventListener('click', (e) => { if (!li.contains(e.target)) set(false); });
 })();
+
+/* v17: "keep me posted" opens the visitor's email app (nothing is sent from the page) */
+(() => {
+  const f = document.querySelector('[data-notify]'); if (!f) return;
+  const st = f.querySelector('[data-notify-status]'), inp = f.querySelector('input');
+  f.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const v = inp.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { st.textContent = 'Please enter a valid email address.'; inp.setAttribute('aria-invalid', 'true'); inp.focus(); return; }
+    inp.removeAttribute('aria-invalid');
+    st.textContent = 'Opening your email app… if nothing happens, email us directly at ' + f.dataset.email + '.';
+    location.href = 'mailto:' + f.dataset.email + '?subject=' + encodeURIComponent('Keep me posted on RumiTech launches') + '&body=' + encodeURIComponent('Hi RumiTech,\n\nPlease let me know when your products launch.\n\nMy email: ' + v + '\n');
+  });
+})();

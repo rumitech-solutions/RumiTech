@@ -96,3 +96,6 @@ Hero with soft gradient and illustrative phone stage, product cards with device 
 
 ## v16 — navigation
 Products mega menu (hover, keyboard and click; Escape closes), tinted inner-page headers.
+
+## v17 — editorial finish
+Instrument Serif italic accent (SIL OFL) in the hero, bento principles tiles, "keep me posted" form (opens the visitor email app, nothing stored), slow animated edge on the hero stage (off for reduced motion).
